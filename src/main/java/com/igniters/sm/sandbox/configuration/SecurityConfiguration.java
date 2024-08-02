@@ -23,16 +23,18 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
       http.authorizeHttpRequests(authorize -> {
-        authorize.requestMatchers("/register").permitAll();
-        authorize.anyRequest().authenticated();
+     
+         authorize.requestMatchers("/getregister","/getlogin","/postregister").permitAll();
+         authorize.anyRequest().authenticated();
       });
 
       http.formLogin(formLogin ->{
-        // formLogin.loginPage("/login")//! pending to create for ui
-        //          .loginProcessingUrl("/authentication")
-        //          .successForwardUrl("/home") //! pending to create for ui
-        //          .usernameParameter("email")
-        //          .passwordParameter("password");
+        formLogin.loginPage("/login")
+                 .loginProcessingUrl("/authenticate")
+                 .successForwardUrl("/home") 
+                 .failureForwardUrl("/getlogin")
+                 .usernameParameter("email")
+                 .passwordParameter("password");
       });
 
       http.csrf(AbstractHttpConfigurer :: disable);
