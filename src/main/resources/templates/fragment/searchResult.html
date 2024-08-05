@@ -1,0 +1,16 @@
+ <!-- src/main/resources/templates/fragments/searchResult.html -->
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="results">
+        <ul>
+            <li th:each="result : ${result}">
+                <a href="#" class="flex items-center p-1 rounded-lg dark:text-white hover:bg-gray-100 text-red-600">                               
+                    <span class="flex-1 ms-3 whitespace-nowrap " th:text="*{result.description}"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html> 
+

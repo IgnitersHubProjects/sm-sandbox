@@ -1,11 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content}, ~{::#title})}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title id="title">Home page</title>
 </head>
 <body>
-    <p>th;eh</p>
+    <div id="content">
+
+        <!--? Nav bar open -->
+   
+    
+
+
+
+    
+
+        <nav class="fixed top-0 z-50 w-full bg-red-300 border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <div class="px-3 py-3 lg:px-5 lg:pl-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-start rtl:justify-end">
+                        <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
+                            aria-controls="logo-sidebar" type="button"
+                            class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                            <span class="sr-only">Open sidebar</span>
+                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" fill-rule="evenodd"
+                                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                                </path>
+                            </svg>
+                        </button>
+                       
+                            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
+                            <span
+                                class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">SM_Sandbox</span>
+                        
+                    </div>
+
+
+
+
+
+                    <div class="flex items-center">
+                        <div class="flex items-center ms-3">
+                            <div class="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
+                                
+                                <button data-collapse-toggle="mega-menu" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
+                                    <span class="sr-only">Open main menu</span>
+                                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+                                <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+                                    <li>
+                                        <a href="#" class="block py-2 px-3 text-blue-600 text-2xl border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Menu1</a>
+                                    </li>
+                                   
+                                    <li>
+                                        <a href="#" class="block py-2 px-3 text-blue-600 text-2xl border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Menu2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block py-2 px-3 text-blue-600 text-2xl border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Menu3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block py-2 px-3 text-blue-600 text-2xl border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Menu4</a>
+                                    </li>
+                                   
+                                    <li>
+                                        <a href="#" class="block py-2 px-3 text-blue-600 text-2xl border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Menu4</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block py-2 px-3 text-blue-600 text-2xl border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Menu6</a>
+                                    </li>
+                                </ul>
+                            </div>
+                              
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!--? Nav bar close -->
+
+        <!--? Side bar srart (Instrument) -->
+        <aside id="logo-sidebar"
+            class="fixed top-0 left-0 z-40 w-96 h-screen pt-10 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+            aria-label="Sidebar">
+            <div class="h-full px-3 pb-4 overflow-y-auto  bg-gray-300 dark:bg-gray-800">
+                <div class="space-y-2 font-medium">
+
+                    <form class="w-80  pt-10">
+                        <label for="default-search"
+                            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </div>
+                            <input type="search" id="default-search"
+                                class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Search " required />
+                           
+                        </div>
+                    </form>
+
+                   <div id="search-results">
+                        <!--! Data will come from fragmet (by AJAX)  -->
+                        
+
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!--? Side bar close (Instrument) -->
+
+        <!--? right dashboard open -->
+        <div class="p-4 ml-96">
+            <div class="p-4 border-2 h-screen border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+
+                <div class="flex items-center justify-center h-screer mb-4 rounded bg-gray-50 dark:bg-gray-800">
+                    <p class="text-2xl justify-center text-gray-400">
+                        this is dashboard
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <!--? right dashboard close -->
+
+    </div>
+    <br>
 </body>
 </html>
