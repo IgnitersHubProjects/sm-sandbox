@@ -12,43 +12,15 @@
 </head>
 
 <body>
-    
-    
-    <div th:replace = "${content}">dga</div>
+
+
+    <div th:replace="${content}">dga</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script>
    
-        $(document).ready(function() {
-            console.log("inside script");
-            $('#default-search').on('input', function() {
-                
-                var query = $(this).val();
-                console.log(query)
-                if (query.length > 0) { 
-                    console.log("inside query length");
-                    $.ajax({
-                        url: '/search', 
-                        type: 'GET',
-                        data: {query: query},
-                        success: function(data) {
-                            console.log(data);
-                            console.log("inside on success function");
-                            $('#search-results').html(data);
-                        },
-                        error: function(xhr, status, error) {
-                            console.error('AJAX Error: ' + status + ' - ' + error);
-                            console.error('Response Text: ' + xhr.responseText);
-                        }
-                    });
-                } else {
-                    $('#search-results').empty();
-                     // Clear results if query is too shor
-                }
-            });
-        });
-    </script>
+    <script src="/script/script.js"></script> 
+   
 </body>
 
 </html>

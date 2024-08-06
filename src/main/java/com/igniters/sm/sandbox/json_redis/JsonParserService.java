@@ -69,7 +69,7 @@ public class JsonParserService {
         for(Instrument instrument : instruments){
            // instrumentRepository.save(instrument);
            redisOperation.saveItemInCache(instrument, instrument.getDescription(), redisOperation.expirationTime());
-            System.out.println("saved");
+            // System.out.println("saved");
         }
         return instruments;
     }
@@ -77,7 +77,7 @@ public class JsonParserService {
 
     //! to fetch data from redis By Pattern
     public List<Instrument> getInstrumentsFromRedis(String pattern){
-         return redisOperation.fildByPattern(pattern);
+         return redisOperation.findByPattern(pattern);
     }
 
 

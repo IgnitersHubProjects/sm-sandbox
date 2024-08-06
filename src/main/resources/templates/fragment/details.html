@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="details">
+        <h2 th:text="${instrument.name}"></h2>
+        <p th:text="${instrument.description}"></p>
+        <!-- other fields as needed -->
+    </div>
+</body>
+</html>

@@ -11,7 +11,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.stereotype.Component;
 
 import com.igniters.sm.sandbox.json_redis.Instrument;
@@ -43,13 +45,20 @@ public class RedisOperation {
         }
     }
 
-    public List<Instrument> fildByPattern(String pattern) {
+    public List<Instrument> findByPattern(String pattern) {
         List<Instrument> instruments = new ArrayList<>();
        try{
          Set<String> keys = redisTemplate.keys(pattern + "*");
+         
         
          for (String key : keys) {
-            instruments.add((Instrument) redisTemplate.opsForValue().get(key));
+            if(key.startsWith(pattern)){
+                Instrument instrument = (Instrument) redisTemplate.opsForValue().get(key);
+                instruments.add(instrument);
+
+                if(instruments.size() > 25) break;
+            }
+           
             }  
         
        }catch(Exception e){
@@ -57,6 +66,9 @@ public class RedisOperation {
        }
        return instruments;
     }
+
+  
+
 
     public Instrument findByKey(String key) {
        
