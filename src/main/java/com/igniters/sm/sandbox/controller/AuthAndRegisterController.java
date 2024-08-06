@@ -23,6 +23,11 @@ public class AuthAndRegisterController {
 
     // getregister
     // postregister
+    @RequestMapping("/login")
+    public String random(Model model) {
+        return  "redirect:/getlogin";
+    }
+
 
     @RequestMapping("/home")
     public String getHome(Model model) {
