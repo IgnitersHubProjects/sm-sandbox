@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <div th:fragment="buyOrder">
+
+
+        <!-- Modal toggle -->
+        <div th:fragment="buyOrder">
+            <!-- Main modal -->
+            <div id="crud-modal" tabindex="-1" aria-hidden="true"
+                class="fixed bottom-0 left-0 z-50 hidden  w-full max-w-md h-auto overflow-y-auto overflow-x-hidden max-h-full sm:ml-96">
+                <div class="relative p-4 w-full  max-w-md">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow">
+                        <!-- Modal header -->
+                     
+                        <form class=" max-w-lg mx-auto border border-gray-300 rounded-lg bg-white shadow-md">
+
+                        <!-- div 1 -->
+                        <div class="flex items-center justify-between p-4 border-b rounded-t bg-blue-200">
+                            <h3 id="description" class="text-lg font-semibold text-gray-900">
+
+                            </h3>
+                            <button type="button"
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center"
+                                onclick="document.getElementById('crud-modal').classList.add('hidden')">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+
+
+                        <!-- Modal body -->
+                        
+
+                            <!-- Radio Button Group for Order Type -->
+                            <div class=" p-2 flex items-center mb-4 border-b border-gray-300 pb-2">
+                                <input id="intraday-radio" type="radio" value="intraday" name="order-type" 
+                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800">
+                                <label for="intraday-radio" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Intraday</label>
+                            </div>
+                        
+                            <!-- Quantity Input Field -->
+                            <div class="p-2 mb-4 border-b border-gray-300 pb-2">
+                                <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Quantity:</label>
+                                <input type="number" id="quantity" aria-describedby="helper-text-explanation"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                       placeholder="0" required />
+                            </div>
+                            
+                            <!-- Market Price and Amount Fields -->
+                            <div class="p-2 mb-4 border-b border-gray-300 pb-2">
+                                <label for="market-price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Market Price:</label>
+                                <label id="price" class="block mb-2 text-sm font-medium text-red-600 dark:text-white">100</label>
+                                
+                                <label for="amount" class="block mt-2 text-sm font-medium text-gray-900 dark:text-white">Amount:</label>
+                                <label id="amount" class="block text-sm font-medium text-green-600 dark:text-white"></label>
+                            </div>
+                        
+                            <!-- Order Type Radio Buttons -->
+                            <div class="  p-2 flex items-center mb-4 border-b border-gray-300 pb-2">
+                                <input id="market-radio" type="radio" value="market" name="order-type"
+                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800">
+                                <label for="market-radio" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Market</label>
+                                
+                                <input id="limit-radio" type="radio" value="limit" name="order-type" checked
+                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 ms-4">
+                                <label for="limit-radio" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Limit</label>
+                            </div>
+                        
+                            <!-- Validity Radio Buttons -->
+                            <div class="  p-2 flex items-center mb-4 border-b border-gray-300 pb-2">
+                                <label for="validity" class="text-sm font-medium text-gray-900 dark:text-white mr-4">Validity:</label>
+                                <input id="one-day-radio" type="radio" value="one-day" name="validity"
+                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800">
+                                <label for="one-day-radio" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">One Day</label>
+                            </div>
+                        
+                            <!-- Submit Button -->
+                            <button type="submit"
+                                     id="submitButton"
+                                    class=" p-4 text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 text-center">
+                                BUY
+                            </button>
+                        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        
+        
+        
+
+    </div>
+</body>
+
+</html>

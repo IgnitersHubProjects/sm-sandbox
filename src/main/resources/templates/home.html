@@ -90,8 +90,6 @@
         </nav>
         <!--? Nav bar close -->
 
-
-
         <!--? Side bar srart (Instrument) -->
         <aside id="logo-sidebar"
             class="fixed top-0 left-0 z-40 w-96 h-screen pt-10 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
@@ -116,12 +114,9 @@
                         </div>
                     </form>
 
-
                     <div id="search-results">
                         <!--* Data will come from fragmet (by AJAX)  -->
                     </div>
-
-
 
                 </div>
 
@@ -129,38 +124,36 @@
 
             </div>
 
-            <!-- <div id="wishlist-section" class="fixed bottom-0 w-96 h-10 flex   bg-red-200 dark:bg-white">
-           
-                <a href="" class="text-center bg-red-300 p-1 mr-1">
-                    <h3 class="text-lg font-semibold pr-1 bg-slate-400 w-20">W-1</h3>
-                </a>
-                <a href="" class="text-center bg-red-300 p-1 mr-1">
-                    <h3 class="text-lg font-semibold pr-1 bg-slate-400 w-20">W-2</h3>
-                </a>
-            </div> -->
-
-
-
-
             <footer
                 class="fixed bottom-0 left-0 z-20 w-96 p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800 dark:border-gray-600">
 
-                <ul
-                    class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-
+                <!-- <ul id="wishlistMenu" class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
                     <li>
-
                         <a href="#"
-                            class="text-black bg-gray-100 hover:bg-gray-300 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">W-1</a>
-
+                            onclick="setWishList('wishlist-1', this)"
+                            class="text-black bg-gray-100 hover:bg-blue-300 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">W-1</a>
                     </li>
                     <li>
-
                         <a href="#"
-                            class="text-black bg-gray-100  hover:bg-gray-300 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">W-2</a>
+                            onclick="setWishList('wishlist-2', this)"
+                            class="text-black bg-gray-100 hover:bg-blue-300 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">W-2</a>
+                    </li>
+                </ul> -->
 
+                <ul id="wishlistMenu" class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+                    <li>
+                        <a href="#"
+                            onclick="setWishList('wishlist-1', this)"
+                            class="text-black bg-blue-300 hover:bg-blue-100 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">W-1</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            onclick="setWishList('wishlist-2', this)"
+                            class="text-black bg-gray-100 hover:bg-blue-100 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">W-2</a>
                     </li>
                 </ul>
+
+
             </footer>
 
         </aside>
@@ -183,7 +176,11 @@
         <!--? right dashboard close -->
 
 
-
+        <!-- ? for buy and sell model-->
+        <div th:replace="~{fragment/order :: buyOrder}" >
+              <!-- * data will come from fragmetn -->
+        </div>
+         
     </div> <!-- container close -->
     <br>
 </body>

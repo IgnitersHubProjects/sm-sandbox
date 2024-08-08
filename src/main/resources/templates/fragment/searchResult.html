@@ -4,35 +4,55 @@
 
 <body>
     <div th:fragment="results">
-        <!-- <ul>
-            <li th:each="result : ${result}">
-                <a th:href="@{/getDetails/{key}(key=${result.description})}" class="flex items-center p-1 rounded-lg dark:text-white hover:bg-gray-100 text-red-600" id="result-link" >                               
-                    <span class="flex-1 ms-3 whitespace-nowrap " th:text="*{result.description}"></span>
-                </a>
-                
-            </li>
-        </ul> -->
-
-
-        <ul>
+       
+        <ul  >
             <li th:each="result : ${result}" class="relative group h-10 ">
-                <a th:href="@{/getDetails/{key}(key=${result.description})}"
-                    class="flex items-center p-1 rounded-lg text-sm dark:text-white hover:bg-gray-100 text-red-600 h-10 w-full"
-                    id="result-link">
-                    <span class="flex-1 whitespace-nowrap" th:text="*{result.description}"></span>
-                </a>
+              
+
+             <a th:href="@{/getDetails/{key}(key=${result.description})}"
+   class="flex items-center p-1 rounded-lg text-sm dark:text-white hover:bg-gray-100 text-blue-600 h-10 w-full"
+   id="result-link">
+   <span class="flex-1 whitespace-nowrap" th:text="*{result.description}"></span>
+   <span class="whitespace-nowrap text-red-500 text-right" th:text="*{result.priceBandHigh}"></span>
+</a>
+
                 <div
-                    class="absolute right-0 top-0 mt-1 mr-1 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    class="absolute right-0 top-0 mt-1 mr-1 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-300">
                     <a href="#"
+                         th:attr="data-description=${result.description} , data-price=${result.priceBandHigh}"
+                         onclick="makeOrder('buy',this.getAttribute('data-description'),this.getAttribute('data-price'))"
                         class="text-black text-center bg-green-400 hover:bg-green-800 focus:ring-2 focus:ring-black font-medium rounded-lg text-sm px-2 py-1 dark:bg-blue-600 w-11">B</a>
                     <a href="#"
+                    th:attr="data-description=${result.description} , data-price=${result.priceBandHigh}"
+                    onclick="makeOrder('sell',this.getAttribute('data-description'),this.getAttribute('data-price'))"
                         class="text-black text-center bg-red-500 hover:bg-red-700 focus:ring-2 focus:ring-black font-medium rounded-lg text-sm px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-11">S</a>
-                    <a href="#"
+                    <a href="#"  th:attr="data-description=${result.description} , data-price=${result.priceBandHigh}"
+                    onclick="addToWishlist(this.getAttribute('data-description'),this.getAttribute('data-price'))"
                         class="text-black text-center bg-blue-500 hover:bg-blue-700 focus:ring-2 focus:ring-black font-medium rounded-lg text-sm px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-11">+</a>
                 </div>
             </li>
         </ul>
 
+
+
+
+
+        <!-- new data  -->
+<!-- 
+        <div id="wishlistModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+            <div class="bg-white p-4 rounded-lg shadow-lg">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Add to Wishlist</h3>
+                <div class="flex space-x-4">
+                    <button onclick="addToWishlist('wishlist-1')"
+                        class="bg-blue-500 text-white px-4 py-2 rounded-lg">Wishlist 1</button>
+                    <button onclick="addToWishlist('wishlist-2')"
+                        class="bg-green-500 text-white px-4 py-2 rounded-lg">Wishlist 2</button>
+                </div>
+                <button onclick="closeWishlistModal()" class="mt-4 text-red-500">Cancel</button>
+            </div>
+        </div> -->
+
+        <!-- new dat end -->
 
     </div>
 </body>
