@@ -77,12 +77,12 @@ public class JsonParserService  {
 
     //! to fetch data by Key
     public Instrument findByKey(String key){
-        return redisOperation.findByKey(key);
+        return redisOperation.findByKey(key,Instrument.class);
     }
 
    //! to get Instrument lotSize and price to calculate its order amount
     public String getLotAmount(String description) {
-       Instrument instrument = redisOperation.findByKey(description);
+       Instrument instrument = redisOperation.findByKey(description,Instrument.class);
        int lotSize = instrument.getLotSize();
        float price = Float.parseFloat(instrument.getPriceBandHigh());
        String ans = Float.toString(lotSize * price);
