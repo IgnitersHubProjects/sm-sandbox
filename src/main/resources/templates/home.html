@@ -144,7 +144,7 @@
                     <li>
                         <a href="#"
                             onclick="setWishList('wishlist-1', this)"
-                            class="text-black bg-gray-100 hover:bg-blue-100 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">W-1</a>
+                            class="text-black bg-blue-300 hover:bg-blue-100 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">W-1</a>
                     </li>
                     <li>
                         <a href="#"
@@ -176,7 +176,11 @@
         <!--? right dashboard close -->
 
 
-
+        <!-- ? for buy and sell model-->
+        <div th:replace="~{fragment/order :: buyOrder}" >
+              <!-- * data will come from fragmetn -->
+        </div>
+         
     </div> <!-- container close -->
     <br>
 </body>

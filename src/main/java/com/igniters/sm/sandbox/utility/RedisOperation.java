@@ -53,7 +53,9 @@ public class RedisOperation {
         
          for (String key : keys) {
             if(key.startsWith(pattern)){
+                System.out.println(" pattern : " + pattern);
                 Instrument instrument = (Instrument) redisTemplate.opsForValue().get(key);
+                System.out.println(" pattern : " + instrument.getDescription());
                 instruments.add(instrument);
 
                 if(instruments.size() > 25) break;

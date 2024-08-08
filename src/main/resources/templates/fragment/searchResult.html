@@ -19,8 +19,12 @@
                 <div
                     class="absolute right-0 top-0 mt-1 mr-1 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-300">
                     <a href="#"
+                         th:attr="data-description=${result.description} , data-price=${result.priceBandHigh}"
+                         onclick="makeOrder('buy',this.getAttribute('data-description'),this.getAttribute('data-price'))"
                         class="text-black text-center bg-green-400 hover:bg-green-800 focus:ring-2 focus:ring-black font-medium rounded-lg text-sm px-2 py-1 dark:bg-blue-600 w-11">B</a>
                     <a href="#"
+                    th:attr="data-description=${result.description} , data-price=${result.priceBandHigh}"
+                    onclick="makeOrder('sell',this.getAttribute('data-description'),this.getAttribute('data-price'))"
                         class="text-black text-center bg-red-500 hover:bg-red-700 focus:ring-2 focus:ring-black font-medium rounded-lg text-sm px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-11">S</a>
                     <a href="#"  th:attr="data-description=${result.description} , data-price=${result.priceBandHigh}"
                     onclick="addToWishlist(this.getAttribute('data-description'),this.getAttribute('data-price'))"

@@ -64,4 +64,12 @@ public class AuthAndRegisterController {
 
     }
 
+
+
+    //temp file
+    @RequestMapping("/temp")
+    public String gettemp(Model model) {
+        return "temp";
+    }
+
 }

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 import lombok.extern.slf4j.Slf4j;
 
 //@RestController
@@ -53,8 +55,6 @@ public class InstrumentController {
         System.out.println("ist size if " + list.size());
         model.addAttribute("result", list);
         
-        
-
         return "fragment/searchResult :: results";
     }
 
@@ -65,5 +65,8 @@ public class InstrumentController {
         System.out.println(instrument.toString());
         return "fragment/details :: details";
     }
+
+
+    
 
 }

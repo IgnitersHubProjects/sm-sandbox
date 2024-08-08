@@ -1,24 +1,18 @@
 package com.igniters.sm.sandbox.json_redis;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.igniters.sm.sandbox.utility.RedisOperation;
 
 @Service
-public class JsonParserService {
+public class JsonParserService  {
 
     @Value("${json.file.path}")
     private String filepath;
@@ -84,6 +78,16 @@ public class JsonParserService {
     //! to fetch data by Key
     public Instrument findByKey(String key){
         return redisOperation.findByKey(key);
+    }
+
+   //! to get Instrument lotSize and price to calculate its order amount
+    public String getLotAmount(String description) {
+       Instrument instrument = redisOperation.findByKey(description);
+       int lotSize = instrument.getLotSize();
+       float price = Float.parseFloat(instrument.getPriceBandHigh());
+       String ans = Float.toString(lotSize * price);
+       return ans;
+       
     }
     
 }
