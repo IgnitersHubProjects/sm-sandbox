@@ -68,5 +68,6 @@ public class Instrument {
         private String detailedDescription;
 
         
-
+        @JsonProperty("quoteData")
+        private QuotesData quoteData;
 }

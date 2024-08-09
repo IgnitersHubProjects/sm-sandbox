@@ -3,13 +3,20 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.igniters.sm.sandbox.service.IIFLService;
 
 import lombok.Data;
 
+
 @Data
+@Component
 public class InstrumentResponse {
 
+   
 
     @JsonProperty("type")
     private String type;
@@ -24,10 +31,15 @@ public class InstrumentResponse {
     private String result;
 
 
+
+     @Autowired
+      private IIFLService iiflService;
+    
     public List<Instrument> getParsedResult() {
         return Arrays.stream(result.split("\\n"))
                      .map(this::parseInstrument)
                      .collect(Collectors.toList());
+      
     }
 
     private Instrument parseInstrument(String line) {
@@ -70,10 +82,8 @@ public class InstrumentResponse {
             instrument.setPriceNumerator(Integer.parseInt(fields[20]));
             instrument.setPriceDenominator(Integer.parseInt(fields[21])); 
             instrument.setDetailedDescription(fields[22]);
-        }
-
+        }      
         
-       
          return instrument;
 }
 

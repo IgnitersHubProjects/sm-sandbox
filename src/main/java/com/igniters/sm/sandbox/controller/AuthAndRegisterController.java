@@ -34,6 +34,7 @@ public class AuthAndRegisterController {
         // ! If API token not present it will get
         iiflService.saveIIFLtoken();
         iiflService.saveInstrumentData();
+        // iiflService.getQuoteData(54930);
         return "home";
     }
 

@@ -3,7 +3,6 @@ package com.igniters.sm.sandbox.json_redis;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -13,8 +12,6 @@ import com.igniters.sm.sandbox.utility.RedisOperation;
 @Service
 public class JsonParserService {
 
-    @Value("${json.file.path}")
-    private String filepath;
 
     @Autowired
     private RedisOperation redisOperation;
