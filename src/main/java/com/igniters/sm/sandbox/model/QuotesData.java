@@ -1,4 +1,4 @@
-package com.igniters.sm.sandbox.json_redis;
+package com.igniters.sm.sandbox.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

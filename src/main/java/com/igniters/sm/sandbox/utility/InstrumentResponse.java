@@ -1,10 +1,12 @@
-package com.igniters.sm.sandbox.json_redis;
+package com.igniters.sm.sandbox.utility;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.igniters.sm.sandbox.model.Instrument;
+
 import lombok.Data;
 
 @Data
@@ -32,7 +34,6 @@ public class InstrumentResponse {
 
     private Instrument parseInstrument(String line) {
         String[] fields = line.split("\\|");
-
         Instrument instrument = new Instrument();
 
         // ! Populate instrument fields from fields array

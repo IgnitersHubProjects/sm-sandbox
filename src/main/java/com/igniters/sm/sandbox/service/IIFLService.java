@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.igniters.sm.sandbox.json_redis.QuotesData;
+import com.igniters.sm.sandbox.model.QuotesData;
 
 public interface IIFLService {
 

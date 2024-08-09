@@ -12,7 +12,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-import com.igniters.sm.sandbox.json_redis.Instrument;
+
+import com.igniters.sm.sandbox.model.Instrument;
 
 @Component
 public class RedisOperation {
