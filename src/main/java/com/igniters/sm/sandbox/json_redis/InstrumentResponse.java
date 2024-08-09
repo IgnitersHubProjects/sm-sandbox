@@ -24,8 +24,6 @@ public class InstrumentResponse {
     private String result;
 
 
-    
-
     public List<Instrument> getParsedResult() {
         return Arrays.stream(result.split("\\n"))
                      .map(this::parseInstrument)
@@ -73,6 +71,8 @@ public class InstrumentResponse {
             instrument.setPriceDenominator(Integer.parseInt(fields[21])); 
             instrument.setDetailedDescription(fields[22]);
         }
+
+        
        
          return instrument;
 }

@@ -1,5 +1,6 @@
 package com.igniters.sm.sandbox.controller;
 
+import java.io.IOException;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,7 @@ public class AuthAndRegisterController {
     }
 
     @RequestMapping("/home")
-    public String getHome(Model model) throws JsonMappingException, JsonProcessingException {
+    public String getHome(Model model) throws IOException {
         // ! If API token not present it will get
         iiflService.saveIIFLtoken();
         iiflService.saveInstrumentData();
@@ -69,5 +70,6 @@ public class AuthAndRegisterController {
 
         return "temp";
     }
+
 
 }

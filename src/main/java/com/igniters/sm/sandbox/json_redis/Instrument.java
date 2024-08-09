@@ -1,8 +1,5 @@
 package com.igniters.sm.sandbox.json_redis;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -69,6 +66,7 @@ public class Instrument {
         
         @JsonProperty("detailedDescription")
         private String detailedDescription;
-    
+
+        
 
 }

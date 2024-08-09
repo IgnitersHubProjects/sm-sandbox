@@ -69,11 +69,9 @@ public class RedisOperation {
     public <T> T findByKey(String key, Class<T> type) {
         try {
             Object value = redisTemplate.opsForValue().get(key);
-
             if (value == null) {
                 return null;
             }
-
             if (type == String.class && value instanceof String) {
                 return type.cast(value);
             } else if (type == Instrument.class && value instanceof Instrument) {
@@ -84,5 +82,4 @@ public class RedisOperation {
         }
         return null;
     }
-
 }

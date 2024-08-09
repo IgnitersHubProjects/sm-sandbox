@@ -1,5 +1,7 @@
 package com.igniters.sm.sandbox.service.impl;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -14,6 +16,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.igniters.sm.sandbox.json_redis.JsonParserService;
 import com.igniters.sm.sandbox.service.IIFLService;
 import com.igniters.sm.sandbox.utility.RedisOperation;
 
@@ -36,6 +39,9 @@ public class IIFLServiceImpl implements IIFLService {
     @Autowired
     private RedisOperation redisOperation;
 
+    @Autowired
+    private JsonParserService  jsonParserService;
+
     @Value("${IIFL.secretKey}")
     private String secretKey;
 
@@ -47,6 +53,13 @@ public class IIFLServiceImpl implements IIFLService {
 
     @Value("${IIFL.masterUrl}")
     private String masterUrl;
+
+
+    // @PostConstruct
+    // public void initializeData() throws IOException {
+    //     saveIIFLtoken();          // Ensure the API token is retrieved and saved
+    //     saveInstrumentData();     // Ensure the instrument data is retrieved and saved
+    // }
 
     public void saveIIFLtoken() throws JsonMappingException, JsonProcessingException {
 
@@ -82,7 +95,7 @@ public class IIFLServiceImpl implements IIFLService {
     }
 
     @Override
-    public void saveInstrumentData() {
+    public void saveInstrumentData() throws IOException {
         Object object = redisOperation.findByKey("IsInsturmentPresent",String.class);
         if (object!=null){
         System.out.println("Instruments present");
@@ -95,11 +108,12 @@ public class IIFLServiceImpl implements IIFLService {
         HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);
         ResponseEntity<String> response = restTemplate.exchange(masterUrl, HttpMethod.POST, entity, String.class);
         String responseBody = response.getBody();
-        ObjectMapper objectMapper = new ObjectMapper();
+        jsonParserService.getParsedInstrumentsFromAPI(responseBody);
+        
         // JsonNode jsonNode = objectMapper.readTree(responseBody);
         // JsonNode resultNode = jsonNode.get("result");
         // String token = resultNode.get("token").asText();
-        System.out.println("got response form master api " + responseBody );
+        // System.out.println("got response form master api " + responseBody );
         // redisOperation.saveTokentoCache("IIFLSession", token, redisOperation.expirationTime());
 
     }

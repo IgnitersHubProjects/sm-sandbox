@@ -24,9 +24,9 @@ public class SecurityConfiguration {
 
       http.authorizeHttpRequests(authorize -> {
      
-        //  authorize.requestMatchers("/getregister","/getlogin","/postregister,","/parsed").permitAll();
-        //  authorize.anyRequest().authenticated();
-        authorize.anyRequest().permitAll();
+         authorize.requestMatchers("/getregister","/getlogin","/postregister,","/parsed").permitAll();
+         authorize.anyRequest().authenticated();
+        // authorize.anyRequest().permitAll();
       });
 
       http.formLogin(formLogin ->{

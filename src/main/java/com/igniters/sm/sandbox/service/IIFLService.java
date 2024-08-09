@@ -1,5 +1,7 @@
 package com.igniters.sm.sandbox.service;
 
+import java.io.IOException;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
@@ -8,6 +10,6 @@ public interface IIFLService {
 
     public String getIIFLToken();
 
-    public void saveInstrumentData();
+    public void saveInstrumentData() throws IOException;
     
 }
