@@ -1,5 +1,4 @@
 package com.igniters.sm.sandbox.json_redis;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,19 +10,15 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class Instrument {
-
-        
+    
         @JsonProperty("exchangeSegment")
         private String exchangeSegment;
-
         @JsonProperty("exchangeInstrumentID")
         private String exchangeInstrumentID;
         @JsonProperty("instrumentType")
         private String instrumentType;
         @JsonProperty("name")
         private String name;
-
-        
         @JsonProperty("description")
         private String description;
         @JsonProperty("series")
@@ -48,7 +43,6 @@ public class Instrument {
         private String underlyingInstrumentId;
         @JsonProperty("underlyingIndexName")
         private String underlyingIndexName;
-
         @JsonProperty("contractExpiration")
         private String contractExpiration;
         @JsonProperty("strikePrice")
@@ -57,17 +51,12 @@ public class Instrument {
         private String optionType;
         @JsonProperty("displayName")
         private String displayName;
-
         @JsonProperty("priceNumerator")
         private Integer priceNumerator;
-
         @JsonProperty("priceDenominator")
         private Integer priceDenominator;
-        
         @JsonProperty("detailedDescription")
         private String detailedDescription;
-
-        
         @JsonProperty("quoteData")
         private QuotesData quoteData;
 }

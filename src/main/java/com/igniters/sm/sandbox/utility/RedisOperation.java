@@ -1,4 +1,5 @@
 package com.igniters.sm.sandbox.utility;
+
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -36,7 +37,6 @@ public class RedisOperation {
         }
     }
 
-
     public void saveTokentoCache(String key, String token, Instant expiryTime) {
         try {
             redisTemplate.opsForValue().set(key, token);
@@ -67,8 +67,6 @@ public class RedisOperation {
         return instruments;
     }
 
-
-    
     public <T> T findByKey(String key, Class<T> type) {
         try {
             Object value = redisTemplate.opsForValue().get(key);

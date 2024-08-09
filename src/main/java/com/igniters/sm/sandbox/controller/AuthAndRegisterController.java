@@ -1,5 +1,4 @@
 package com.igniters.sm.sandbox.controller;
-
 import java.io.IOException;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,53 +23,37 @@ public class AuthAndRegisterController {
     @Autowired
     private IIFLService iiflService;
 
-    @RequestMapping("/login")
-    public String random(Model model) {
-        return "redirect:/getlogin";
-    }
-
     @RequestMapping("/home")
     public String getHome(Model model) throws IOException {
-        // ! If API token not present it will get
-        iiflService.saveIIFLtoken();
-        iiflService.saveInstrumentData();
-        // iiflService.getQuoteData(54930);
+        // ! check weather token and Instruments present or not if not it load data and generate token too.
+        iiflService.checkIIFLtoken();
+        iiflService.checkInstrumentData();      
         return "home";
     }
 
-    @RequestMapping("/getlogin")
+    @RequestMapping("/login")
     public String getlogin(Model model) {
         return "login";
     }
 
-    @RequestMapping("/getregister")
+    @RequestMapping("/register")
     public String getRegister(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "register";
     }
 
-    @PostMapping("/postregister")
+    @PostMapping("/registerUser")
     public String registerUser(@ModelAttribute User user) {
-
-        System.out.println("inside postregister");
+        // System.out.println("inside registerUser");
         user.setRoles(Arrays.asList(
                 new Role("ROLE_USER")));
         if (userService.registerUser(user)) {
-            return "redirect:/getlogin";
+            return "redirect:/login";
 
         } else {
-            return "redirect:/getregister";
+            return "redirect:/register";
         }
-
     }
-
-    // !temp file
-    @RequestMapping("/temp")
-    public String gettemp(Model model) throws JsonMappingException, JsonProcessingException {
-
-        return "temp";
-    }
-
 
 }

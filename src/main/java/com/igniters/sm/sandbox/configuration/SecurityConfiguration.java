@@ -24,16 +24,16 @@ public class SecurityConfiguration {
 
       http.authorizeHttpRequests(authorize -> {
      
-        //  authorize.requestMatchers("/getregister","/getlogin","/postregister,","/parsed").permitAll();
-        //  authorize.anyRequest().authenticated();
-        authorize.anyRequest().permitAll();
+         authorize.requestMatchers("/register","/login").permitAll();
+         authorize.anyRequest().authenticated();
+        // authorize.anyRequest().permitAll();
       });
 
       http.formLogin(formLogin ->{
-        formLogin.loginPage("/getlogin")
+        formLogin.loginPage("/login")
                  .loginProcessingUrl("/authenticate")
                  .successForwardUrl("/home") 
-                 .failureForwardUrl("/getlogin")
+                 .failureForwardUrl("/login")
                  .usernameParameter("email")
                  .passwordParameter("password");
       });
@@ -42,7 +42,7 @@ public class SecurityConfiguration {
 
       http.logout(logoutForm -> {
         logoutForm.logoutUrl("/logout"); 
-        logoutForm.logoutSuccessUrl("/getlogin");
+        logoutForm.logoutSuccessUrl("/login");
   
       });
     

@@ -55,7 +55,7 @@ public class IIFLServiceImpl implements IIFLService {
     private String quoteUrl;
 
 
-    public void saveIIFLtoken() throws JsonMappingException, JsonProcessingException {
+    public void checkIIFLtoken() throws JsonMappingException, JsonProcessingException {
 
         Object object = redisOperation.findByKey("IIFLSession", String.class);
         if (object != null) {
@@ -87,7 +87,7 @@ public class IIFLServiceImpl implements IIFLService {
     }
 
     @Override
-    public void saveInstrumentData() throws IOException {
+    public void checkInstrumentData() throws IOException {
         Object object = redisOperation.findByKey("IsInsturmentPresent", String.class);
         if (object != null) {
             System.out.println("Instruments present");

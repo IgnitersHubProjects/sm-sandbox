@@ -7,12 +7,12 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.igniters.sm.sandbox.json_redis.QuotesData;
 
 public interface IIFLService {
-    
-    public void saveIIFLtoken() throws JsonMappingException, JsonProcessingException;
+
+    public void checkIIFLtoken() throws JsonMappingException, JsonProcessingException;
 
     public String getIIFLToken();
 
-    public void saveInstrumentData() throws IOException;
+    public void checkInstrumentData() throws IOException;
 
     public QuotesData getQuoteData(int exchangeInstrumentId);
     
